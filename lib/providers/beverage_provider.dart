@@ -3,7 +3,6 @@ import 'package:bobo_tea/models/cart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class BeverageData extends ChangeNotifier {
   final List<Beverage> beverages = [
     Beverage(
@@ -56,13 +55,20 @@ class BeverageData extends ChangeNotifier {
     ),
   ];
 
-  List<Beverage> get favoritesList =>
-      beverages.where((b) => b.isFavorite).toList();
-
   void toggleFavorite(Beverage beverage) {
     beverage.isFavorite = !beverage.isFavorite;
     notifyListeners();
     _saveFavorites();
+  }
+
+  Future<List<Beverage>> get favoritesList async {
+    final prefs = await SharedPreferences.getInstance();
+    final favoriteBeverageTitle =
+        prefs.getStringList('favoriteBeverageTitle') ?? [];
+
+    return beverages
+        .where((b) => favoriteBeverageTitle.contains(b.title))
+        .toList();
   }
 
   BeverageData() {
