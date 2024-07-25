@@ -57,7 +57,6 @@ class _NavigationPageState extends State<NavigationPage> {
               NavigationDestination(
                 selectedIcon: Icon(Icons.shopping_cart),
                 icon: Icon(Icons.shopping_cart_outlined),
-       
                 label: AppStrings.cartNavLabel,
                 tooltip: AppStrings.cartNavTooltip,
               ),

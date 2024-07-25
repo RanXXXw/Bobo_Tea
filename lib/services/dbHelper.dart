@@ -71,7 +71,6 @@ class DatabaseHelper {
     final orders = List<Order>.generate(maps.length, (i) {
       final itemsJson = maps[i]['items'];
       List<CartItem> items = [];
-      print(itemsJson);
 
       if (itemsJson is String) {
         items = (jsonDecode(itemsJson) as List<dynamic>)

@@ -1,3 +1,4 @@
+import 'package:bobo_tea/resources/resources.dart';
 import 'package:flutter/material.dart';
 
 class ChoiceChipGroup extends StatelessWidget {
@@ -17,22 +18,22 @@ class ChoiceChipGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.only(bottom: AppDimens.paddingMarginM),
       width: 600,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: AppTextStyles.mediumBoldBlack,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppDimens.heightXXXS),
           Wrap(
             spacing: 12.0,
             runSpacing: 12.0,
             children: options
                 .map((option) => ChoiceChip(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(AppDimens.paddingMarginXS),
                       showCheckmark: false,
                       backgroundColor: Colors.grey[100],
                       selectedColor: Colors.deepPurple[100],
@@ -42,7 +43,7 @@ class ChoiceChipGroup extends StatelessWidget {
                         color: selectedValue == option
                             ? Colors.white
                             : Colors.black,
-                        fontSize: 16.0,
+                        fontSize: AppDimens.textS,
                       ),
                       label: Text(option.toString().split('.').last),
                       selected: selectedValue == option,

@@ -1,3 +1,4 @@
+import 'package:bobo_tea/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,9 +17,9 @@ class ReusableAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         titleText,
         style: GoogleFonts.courgette(
-            fontSize: 24, color: const Color.fromARGB(255, 248, 244, 241)),
+            fontSize: AppDimens.textL, color: const Color.fromARGB(255, 248, 244, 241)),
       ),
-      backgroundColor: const Color.fromARGB(255, 202, 199, 222),
+      backgroundColor: AppColors.primary,
     );
   }
 
